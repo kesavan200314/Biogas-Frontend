@@ -8,8 +8,8 @@ import "./Service.css";
 
 // Biogas Bids Data
 const bids = [
-  { id: 1, duration: "6 Months", price: 200000, details: "Biogas service for 6 months", image: img1 },
-  { id: 2, duration: "1 Year", price: 400000, details: "Biogas service for 1 year", image: img2 }
+  { id: 1, duration: "6 Months", price: 75000, details: "Biogas service for 6 months", image: img1 },
+  { id: 2, duration: "1 Year", price: 125000, details: "Biogas service for 1 year", image: img2 }
 ];
 
 function Service() {

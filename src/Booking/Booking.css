@@ -1,6 +1,5 @@
 /* Gradient Background */
 .booking-form-container {
-  background: linear-gradient(135deg, #46cb11, #2575fc);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +9,11 @@
   color: white;
   animation: fadeIn 1.5s ease-in-out;
   background-image: url(../assets/photo-1485470733090-0aae1788d5af.avif);
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
 }
+
 
 /* Image Styling */
 .booking-image {

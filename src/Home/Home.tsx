@@ -1,7 +1,7 @@
 import  { useEffect, useState } from "react";
 import "./Home.css";
 
-import image1 from "../assets/carrots-2106825.jpg";
+import image1 from "../assets/Vijay_Kesa_bio_gas_waste_product_image_3355e444-25d0-4555-a132-b6a76ba21980.png";
 import image2 from "../assets/greenhouse-6226263.jpg";
 import image3 from "../assets/cow-9357663.jpg";
 import image4 from "../assets/Vijay_Kesa_bio_gas_image_1d2c0898-3cb5-41d8-bb1d-b2de796a2dbb.png";
@@ -45,8 +45,13 @@ const Home = () => {
 
   return (
     <div className="home-container">
+     
       <img src={images[currentIndex]} alt="Slideshow" className="home-image" />
-    </div>
+      <div>
+        
+      </div>
+    
+</div>
   );
 };
 

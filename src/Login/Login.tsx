@@ -3,7 +3,7 @@
 
 import  { useState } from "react";
 import "./Login.css";
-import backgroundImage from "../assets/login-bg.png"; 
+import backgroundImage from "../assets/abstract-techno-background-with-connecting-lines.jpg"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
