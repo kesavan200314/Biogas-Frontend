@@ -17,8 +17,13 @@ interface AuthContexType{
 const AuthContext= createContext<AuthContexType|undefined>(undefined)
 
 export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
-    const [user ,setUser]=useState<User|null>(null);  const register = async (username:string,email:string,password:string)=>{    if(!username || !password || !email) {
+   
+  const [user ,setUser]=useState<User|null>(null); 
+
+ const register = async (username:string,email:string,password:string)=>{   
+   if(!username || !password || !email) {
  console.log('fill the fields')
+ 
  return;
     }
       try{
@@ -27,8 +32,10 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
           email,
           password,
         })
+        console.log(response)
         console.log("registerUser:", response);
-        redirect('/home')      }
+        redirect('/home')      
+      }
       catch(error:any)
       {
         console.log(error.response?.data || error.message);
@@ -49,13 +56,19 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
   const signout = async() => {
     setUser(null);
     localStorage.removeItem('token');
-  };  return (
+  }; 
+   return (
     <AuthContext.Provider value={{ user, register, signin, signout }}>
     {children}
 </AuthContext.Provider>
   );
-  };export const UseAuth =():AuthContexType => {
-  const context = useContext(AuthContext);  if(!context){
+
+  };
+  
+  export const UseAuth =():AuthContexType => {
+  const context = useContext(AuthContext);  
+  
+  if(!context){
     throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;

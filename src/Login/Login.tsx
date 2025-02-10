@@ -1,25 +1,29 @@
-
-
-
-import  { useState } from "react";
+import { useState } from "react";
 import "./Login.css";
-import backgroundImage from "../assets/"; 
+import backgroundImage from "../assets/freepik__the-style-is-candid-image-photography-with-natural__96215.png";
+import { useNavigate } from "react-router-dom";
+import { UseAuth } from "../Backend/auathcontext";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const { signin } = UseAuth();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false); // To toggle password visibility
+  const navigate = useNavigate();
 
-  const handleSubmit = (event: { preventDefault: () => void; }) => {
-    event.preventDefault();
-    console.log("Email:", email, "Password:", password, "Remember Me:", rememberMe);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    signin(email, password);
+    alert("Sign in successful!");
+    setEmail("");
+    // setRememberMe("");
+    setPassword("");
+    navigate("/");
   };
 
   return (
-   
-       <div className="login" style={{ backgroundImage: `url(${backgroundImage})` }}>
-
+    <div className="login" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <form className="login__form" onSubmit={handleSubmit}>
         <h1 className="login__title">Login</h1>
 
@@ -55,7 +59,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <label htmlFor="login-pass" className="login__label">Password</label>
-              <i 
+              <i
                 className={`ri-${showPassword ? "eye-line" : "eye-off-line"} login__eye`}
                 onClick={() => setShowPassword(!showPassword)}
               ></i>
@@ -91,8 +95,3 @@ const Login = () => {
 };
 
 export default Login;
-
-  
-
-      
-  

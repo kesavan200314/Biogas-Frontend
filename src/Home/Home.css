@@ -13,7 +13,8 @@
   height: auto;
   max-height: 100vh;
   object-fit: cover;
-  transition: opacity 1s;
+  transition: opacity 1s;;
+  align-items: center;
 }
 /* .home-image {
   width: 100%;

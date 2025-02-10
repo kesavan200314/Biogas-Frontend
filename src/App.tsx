@@ -1,8 +1,3 @@
-
-
-
-
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About/About";
 import TopBar from "./Topbar/Topbar";
@@ -16,26 +11,22 @@ import Footer from "./Footer/Footer";
 
 function App() {
   return (
-    <Router>
+
+    <>
       <TopBar />
-      <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<About />} />
+          <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
           <Route path="/register" element={<Register />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/Footer" element={<Footer />} />
           <Route path="/Login" element={<Login />} />
+          
         </Routes>
-      </div>
 
-      
-      <Service/>
-      <Blog/>
-      <Footer/>
-    </Router>
+        </>
     
     
   );
