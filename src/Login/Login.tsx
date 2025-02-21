@@ -3,32 +3,37 @@ import "./Login.css";
 import backgroundImage from "../assets/freepik__the-style-is-candid-image-photography-with-natural__96215.png";
 import { useNavigate } from "react-router-dom";
 import { UseAuth } from "../Backend/auathcontext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const { signin } = UseAuth();
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [rememberMe, setRememberMe] = useState<boolean>(false);
-  const [showPassword, setShowPassword] = useState<boolean>(false); // To toggle password visibility
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    signin(email, password);
-    alert("Sign in successful!");
-    setEmail("");
-    // setRememberMe("");
-    setPassword("");
-    navigate("/");
+    try {
+      await signin(email, password);
+      toast.success(" Welcome back! You have successfully logged in.");
+      setEmail("");
+      setPassword("");
+      setTimeout(() => navigate("/"), 2000);
+    } catch (error) {
+      toast.error(" Login failed! Please check your credentials and try again.");
+    }
   };
 
   return (
     <div className="login" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar newestOnTop closeOnClick pauseOnHover draggable theme="colored" />
       <form className="login__form" onSubmit={handleSubmit}>
         <h1 className="login__title">Login</h1>
 
         <div className="login__content">
-          {/* Email Field */}
           <div className="login__box">
             <i className="ri-user-3-line login__icon"></i>
             <div className="login__box-input">
@@ -45,7 +50,6 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Password Field */}
           <div className="login__box">
             <i className="ri-lock-2-line login__icon"></i>
             <div className="login__box-input">
@@ -67,7 +71,6 @@ const Login = () => {
           </div>
         </div>
 
-        {/* Remember Me & Forgot Password */}
         <div className="login__check">
           <div className="login__check-group">
             <input
@@ -82,13 +85,7 @@ const Login = () => {
           <a href="#" className="login__forgot">Forgot Password?</a>
         </div>
 
-        {/* Submit Button */}
         <button type="submit" className="login__button">Login</button>
-
-        {/* Register Link */}
-        <p className="login__register">
-          Don't have an account? <a href="/register">Register</a>
-        </p>
       </form>
     </div>
   );

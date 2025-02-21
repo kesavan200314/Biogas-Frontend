@@ -5,9 +5,11 @@ import App from './App.tsx'
 import { ServiceProvider } from './Backend/Servicecontext.tsx';
 import { Authprovider } from './Backend/auathcontext.tsx';
 import { BrowserRouter } from 'react-router-dom';
+import { BookingProvider } from './Backend/Bookingcontext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <BookingProvider>
     <ServiceProvider>
     <Authprovider>
     <BrowserRouter>
@@ -15,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
     </BrowserRouter>
     </Authprovider>
     </ServiceProvider>
+    </BookingProvider>
   </StrictMode>,
 
 )

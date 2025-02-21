@@ -1,34 +1,34 @@
-
-
 import React, { useState } from 'react';
 import './Register.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';
 import { UseAuth } from '../Backend/auathcontext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register: React.FC = () => {
-
   const { register } = UseAuth();
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const navigate = useNavigate();  
-    
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        register(username, email, password);
-        setUsername('');
-        setPassword('');
-        setEmail('');
-        navigate('/');
-    };
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const navigate = useNavigate();  
 
-  function setName(_value: string): void {
-    throw new Error('Function not implemented.');
-    console.log(setName)
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await register(username, email, password);
+      toast.success('Registration successful! Welcome aboard.');
+      setUsername('');
+      setPassword('');
+      setEmail('');
+      setTimeout(() => navigate('/'), 2000);
+    } catch (error) {
+      toast.error(' Registration failed. Please try again.');
+    }
+  };
 
   return (
     <div className="register-container">
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar newestOnTop closeOnClick pauseOnHover draggable theme="colored" />
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -37,7 +37,7 @@ const Register: React.FC = () => {
             type="text"
             id="name"
             value={username}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}  
             required
           />
         </div>

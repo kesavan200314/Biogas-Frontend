@@ -1,26 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaLeaf } from "react-icons/fa";
+import { FaFire } from "react-icons/fa";
 import "./Topbar.css";
 
 const Topbar: React.FC = () => {
   return (
     <header className="topbar">
-      {/* Logo Section */}
-      <div className="logo">
-        <FaLeaf className="logo-icon" />
-        <span>Green Energy</span>
-      </div>
+     <div className="logo">
+      <span>Green</span>
+      <FaFire className="logo-icon" />
+      <span>Energy</span>
+    </div>
 
       {/* Center Navigation */}
       <nav className="navbar">
         <ul className="nav-links center-nav">
           <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
           <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/services">Services</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li>
-          <li className="nav-item"><Link className="nav-link" to="/booking">Booking</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/service">Services</Link></li>
           <li className="nav-item"><Link className="nav-link" to="/Blog">Blog</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/Register">Register</Link></li>
+          
         </ul>
       </nav>
 

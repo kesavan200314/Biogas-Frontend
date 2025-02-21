@@ -47,9 +47,9 @@
 
 
 
-  .gallery-item:hover {
+  /* .gallery-item:hover {
     transform: scale(1.05);
-  }
+  } */
 
   /* Image Styling */
   .gallery-item img {
@@ -93,5 +93,39 @@
   .bid-button:hover {
     background: #1e5824;
   }
+
+ /* button css code */
+
+ .custom-button {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-button span {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-button:hover {
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.custom-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 

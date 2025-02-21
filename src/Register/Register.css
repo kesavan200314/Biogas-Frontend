@@ -1,6 +1,6 @@
 
 
-  /* Gradient Background */
+  
 .register-container {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   background-image: url(../assets/freepik__the-style-is-candid-image-photography-with-natural__96213.png);
@@ -17,7 +17,7 @@
   background-position: center; 
 }
 
-/* Image Styling */
+
 .register-image {
   margin-bottom: 100px;
   animation: slideIn 1s ease-in-out;
@@ -30,7 +30,7 @@
   border: 3px solid white;
 }
 
-/* Form Styling */
+
 form {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
@@ -76,7 +76,7 @@ form {
   background: #6a11cb;
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -106,4 +106,6 @@ form {
     transform: translateY(0);
     opacity: 1;
   }
-}
+} 
+
+

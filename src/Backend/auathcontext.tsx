@@ -24,10 +24,10 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
    if(!username || !password || !email) {
  console.log('fill the fields')
  
- return;
+ return;;
     }
       try{
-        const response =await axios.post('http://localhost:3000/api/register',    {
+        const response =await axios.post('http://localhost:3000/api/user/register',    {
           username,
           email,
           password,
@@ -41,12 +41,12 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
         console.log(error.response?.data || error.message);
       }
   } 
-   const signin = async (username:string,password:string) => {
+   const signin = async (email:string,password:string) => {
     try{
-      const response = await axios.post('http://localhost:3000/api/login', {
-        username,
+      const response = await axios.post('http://localhost:3000/api/user/login', {
+        email,
          password
-      })     
+      }, { withCredentials: true })     
        console.log("loginUser:", response)
     }
     catch(error:any){

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 import fb from '../assets/facebook.png';
 import twitter from '../assets/twitter.png';
 import LinkedIn from '../assets/linkedin.png';
@@ -40,20 +41,27 @@ const Footer: React.FC = () => {
               <p>Minute Magic</p>
             </a>
           </div>
-          <div className="sb-footer-links-div">
-            <h4>Company</h4>
+          {/* <div className="sb-footer-links-div">
+            <h4>category</h4>
             <a href="/about">
-              <p>About</p>
+              <p>Home</p>
             </a>
             <a href="/press">
-              <p>Press</p>
+              <p>About</p>
             </a>
             <a href="/career">
-              <p>Career</p>
+              <p>Service</p>
             </a>
             <a href="/contact">
-              <p>Contact</p>
+              <p>Blog</p>
             </a>
+          </div> */}
+           <div className="sb-footer-links-div">
+            <h4>Category</h4>
+            <Link to="/"><p>Home</p></Link>
+            <Link to="/about"><p>About</p></Link>
+            <Link to="/services"><p>Service</p></Link>
+            <Link to="/blog"><p>Blog</p></Link>
           </div>
           <div className="sb-footer-links-div">
             <h4>Coming soon on</h4>

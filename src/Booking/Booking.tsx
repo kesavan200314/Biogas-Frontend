@@ -1,49 +1,54 @@
 import React, { useState } from 'react';
-import './Booking.css'; // Import the CSS file
+import './Booking.css'; 
+import { useBooking } from '../Backend/Bookingcontext';
+import { useNavigate } from 'react-router-dom';
+
 
 const Booking: React.FC = () => {
-  const [name, setName] = useState<string>('');
   const [number, setNumber] = useState<string>('');
   const [product, setProduct] = useState<string>('');
-  const [productName, setProductName] = useState<string>('');
+  const [product_Name, setProductName] = useState<string>('');
+ const navigate = useNavigate();
+  const { createBooking } = useBooking()
 
   // Sample product data
   const products = [
-    { id: '1', name: '6 month biogas', models: ['with waste product Biogas', 'without waste product Biogas'] },
-    { id: '2', name: '1 year Biogas', models: ['without waste product Biogas', 'with waste product Biogas'] },
+    { id: '1', name: '500L Tank biogas fitting', models: ['with waste product Biogas', 'without waste product Biogas'] },
+    { id: '2', name: '1000L Tank biogas fitting', models: ['without waste product Biogas', 'with waste product Biogas'] },
   ];
 
   const handleProductChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedProduct = e.target.value;
     setProduct(selectedProduct);
-    setProductName(''); // Reset product name when product changes
+    setProductName(''); 
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    // Handle form submission logic here
-    console.log({ name, number, product, productName });
+
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    try {
+      event.preventDefault();
+
+      const response = createBooking(number, product, product_Name,);
+        setNumber(''),
+        setProduct(''),
+        setProductName('')
+
+      console.log('Booking successful:', response);
+      navigate('/')
+      // Optionally, show a success message or handle further logic
+    } catch (error) {
+      console.error('There was an error submitting the form:', error);
+      // Handle error (e.g., show error message to the user)
+    }
   };
 
   const selectedProductData = products.find((p) => p.name === product);
 
   return (
     <div className="booking-form-container">
-      <div className="booking-image">
-        {/* <img src="https://via.placeholder.com/150" alt="Booking" /> */}
-      </div>
       <h2>Booking Form</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
         <div className="form-group">
           <label htmlFor="number">Number:</label>
           <input
@@ -74,7 +79,7 @@ const Booking: React.FC = () => {
           <label htmlFor="productName">Product Name:</label>
           <select
             id="productName"
-            value={productName}
+            value={product_Name}
             onChange={(e) => setProductName(e.target.value)}
             required
             disabled={!product}
