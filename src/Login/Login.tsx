@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./Login.css";
-import backgroundImage from "../assets/freepik__the-style-is-candid-image-photography-with-natural__96215.png";
+import backgroundImage from "../assets/bg.jpg";
 import { useNavigate } from "react-router-dom";
 import { UseAuth } from "../Backend/auathcontext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }: { setIsAuthenticated: (auth: boolean) => void }) => {
   const { signin } = UseAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,18 +15,21 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
-      await signin(email, password);
-      toast.success(" Welcome back! You have successfully logged in.");
-      setEmail("");
-      setPassword("");
+      const token = await signin(email, password);
+      Cookies.set("token", token.token, { expires: 1 }); // Save token in cookies for 1 day
+      setIsAuthenticated(true); // Update state
+      window.dispatchEvent(new Event("authChange")); // Notify app of auth change
+      toast.success("Welcome back! You have successfully logged in.");
       setTimeout(() => navigate("/"), 2000);
     } catch (error) {
-      toast.error(" Login failed! Please check your credentials and try again.");
+      toast.error("Login failed! Please check your credentials and try again.");
     }
   };
+  
 
   return (
     <div className="login" style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -92,3 +96,4 @@ const Login = () => {
 };
 
 export default Login;
+

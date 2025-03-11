@@ -12,8 +12,8 @@ const Footer: React.FC = () => {
       <div className="sb-footer-section-padding">
         <div className="sb-footer-links">
           <div className="sb-footer-links-div">
-            <h4>For Business</h4>
-            <a href="/employer">
+            <h4>for Business</h4>
+            <a >
               <p>Biogas</p>
             </a>
             {/* <a href="/healthplan">
@@ -25,19 +25,19 @@ const Footer: React.FC = () => {
           </div>
           <div className="sb-footer-links-div">
             <h4>Resources</h4>
-            <a href="/employer">
+            <a >
               <p>Agricultural Waste</p>
             </a>
-            <a href="/healthplan">
+            <a >
               <p> Animal Manure7</p>
             </a>
-            <a href="/individual">
+            <a >
               <p> Municipal Solid Waste </p>
             </a>
           </div>
           <div className="sb-footer-links-div">
             <h4>Partners</h4>
-            <a href="/employer">
+            <a >
               <p>Minute Magic</p>
             </a>
           </div>
@@ -60,11 +60,11 @@ const Footer: React.FC = () => {
             <h4>Category</h4>
             <Link to="/"><p>Home</p></Link>
             <Link to="/about"><p>About</p></Link>
-            <Link to="/services"><p>Service</p></Link>
+            <Link to="/service"><p>Services</p></Link>
             <Link to="/blog"><p>Blog</p></Link>
           </div>
           <div className="sb-footer-links-div">
-            <h4>Coming soon on</h4>
+          <h4 className="coming-soon">Coming soon on</h4>
             <div className="socialmedia">
               <a href='https://www.facebook.com/r.php?entry_point=login'> <img src={fb} alt="Facebook"  /></a>
               <a href='https://x.com/i/flow/login'><img src={twitter} alt="Twitter" /></a>
@@ -75,33 +75,8 @@ const Footer: React.FC = () => {
         </div>
         <hr />
 
-        <div className="sb-footer-below">
-          <div className="sb-footer-copyright">
-            <p>@{new Date().getFullYear()} Minute Magic. All rights reserved.</p>
-          </div>
-          <div className="sb-footer-below-links">
-            <a href="/term">
-              <div>
-                <p>Terms & Conditions</p>
-              </div>
-            </a>
-            <a href="/privacy">
-              <div>
-                <p>Privacy</p>
-              </div>
-            </a>
-            <a href="/security">
-              <div>
-                <p>Security</p>
-              </div>
-            </a>
-            <a href="/cookie">
-              <div>
-                <p>Cookie Declaration</p>
-              </div>
-            </a>
-          </div>
-        </div>
+       
+        
       </div>
     </div>
   );

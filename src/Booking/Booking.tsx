@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import './Booking.css'; 
 import { useBooking } from '../Backend/Bookingcontext';
-import { useNavigate } from 'react-router-dom';
-
 
 const Booking: React.FC = () => {
   const [number, setNumber] = useState<string>('');
   const [product, setProduct] = useState<string>('');
   const [product_Name, setProductName] = useState<string>('');
- const navigate = useNavigate();
+
   const { createBooking } = useBooking()
 
   // Sample product data
@@ -23,20 +21,21 @@ const Booking: React.FC = () => {
     setProductName(''); 
   };
 
-
-
   const handleSubmit = async (event: React.FormEvent) => {
     try {
       event.preventDefault();
 
-      const response = createBooking(number, product, product_Name,);
-        setNumber(''),
-        setProduct(''),
-        setProductName('')
+      // Wait for the createBooking to complete
+      await createBooking(number, product, product_Name);
 
-      console.log('Booking successful:', response);
-      navigate('/')
-      // Optionally, show a success message or handle further logic
+      // Reset the form fields after successful submission
+      setNumber('');
+      setProduct('');
+      setProductName('');
+
+      console.log('Booking successful');
+      // Optionally, navigate or show a success message
+      // navigate('/')
     } catch (error) {
       console.error('There was an error submitting the form:', error);
       // Handle error (e.g., show error message to the user)

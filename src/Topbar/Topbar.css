@@ -1,5 +1,4 @@
-
-
+/* Base Styles */
 .topbar {
     position: fixed;
     top: 0;
@@ -10,14 +9,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 8%;
-    /* background: rgba(0, 0, 0, 0.4); */
     background: black;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease-in-out;
 }
 
-
-
+/* Logo */
 .logo {
     font-size: 2rem;
     font-weight: 800;
@@ -25,22 +22,19 @@
     background: linear-gradient(to right, #16FF00, #FFED00);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: flex; /* Makes text and icon align properly */
+    display: flex;
     align-items: center;
-    gap: 8px; /* Adds space between text and icon */
+    gap: 8px;
 }
 
 .logo-icon {
     color: orange; 
 }
 
-
-      
-
-
-/* Navigation Bar */
+/* Navbar */
 .navbar {
     display: flex;
+    gap: 2rem;
 }
 
 .nav-links {
@@ -84,233 +78,66 @@
     box-shadow: 0 0 10px #16FF00;
 }
 
+/* Mobile Menu Button */
+.mobile-menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
 /* Responsive Design */
-@media (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .topbar {
+        padding: 1rem 5%;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: black;
+        display: none;
         flex-direction: column;
+        align-items: center;
+        gap: 1rem;
         padding: 1rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .navbar.open {
+        display: flex;
     }
 
     .nav-links {
         flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-item {
+        width: 100%;
         text-align: center;
-        gap: 0.5rem;
     }
 
     .nav-link {
-        font-size: 1.0rem;
+        font-size: 1.3rem;
+        padding: 0.5rem 0;
+        display: block;
     }
 
-    .login-nav .nav-link {
-        font-size: 1.1rem;
-        padding: 0.2rem 1rem;
+    .login-nav {
+        margin-top: 10px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

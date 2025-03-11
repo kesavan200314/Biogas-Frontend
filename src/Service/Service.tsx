@@ -16,9 +16,6 @@ const bids = [
 function Service() {
   const navigate = useNavigate();
 
-  const handleBidClick = (id: number) => {
-    navigate(`/bid/${id}`);
-  };
 
   //  Add Function for Booking Button
   const handleBookingClick = () => {
@@ -37,7 +34,7 @@ function Service() {
       <div className="desc">
         <h3>{bid.duration} - {bid.price} </h3>
         <p>{bid.details}</p>
-        <button className="bid-button" onClick={() => handleBidClick(bid.id)}>Place Bid</button>
+        {/* <button className="bid-button" onClick={() => handleBidClick(bid.id)}>Place Bid</button> */}
       </div>
     </div>
   ))}

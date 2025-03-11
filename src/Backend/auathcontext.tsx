@@ -7,6 +7,7 @@ interface User{
     token:string;
     email:string;
 }
+
 interface AuthContexType{
     user:User|null;
     // lodaing:Boolean;
@@ -48,6 +49,7 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
          password
       }, { withCredentials: true })     
        console.log("loginUser:", response)
+       return response.data;
     }
     catch(error:any){
       console.log(error)
@@ -73,3 +75,4 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
   }
   return context;
 };
+

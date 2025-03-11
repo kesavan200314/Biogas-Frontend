@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 :root {
   --white-color: hsl(0, 0%, 100%);
-  --black-color: hsl(0, 0%, 0%);
+  --black-color: hsla(0, 0%, 0%, 0.856);
   --body-font: "Poppins", sans-serif;
   --h1-font-size: 1.75rem;
   --normal-font-size: 1rem;
@@ -51,6 +51,8 @@ img {
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
+  
+  
 }
 .login__img {
   position: absolute;
@@ -62,12 +64,15 @@ img {
 .login__form {
   position: relative;
   background-color: hsla(0, 0%, 10%, 0.1);
-  background-color: black;
+  /* background-color: black; */
   border: 2px solid var(--white-color);
   margin-inline: 1.5rem;
   padding: 2.5rem 1.5rem;
   border-radius: 1rem;
   backdrop-filter: blur(8px);
+  padding-bottom: -10px;
+  
+  
 }
 .login__title {
   text-align: center;
