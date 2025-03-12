@@ -29,9 +29,10 @@ const Register: React.FC = () => {
   return (
     <div className="register-container">
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar newestOnTop closeOnClick pauseOnHover draggable theme="colored" />
-      <h2>Register</h2>
+      {/* <h2>Register</h2> */}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
+          <h2 className='one'>Register</h2>
           <label htmlFor="name">Name</label>
           <input
             type="text"

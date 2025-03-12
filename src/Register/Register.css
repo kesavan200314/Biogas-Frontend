@@ -3,7 +3,7 @@
   
 .register-container {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
-  background-image: url(../assets/pexels-anna-nekrashevich-8534381.jpg);
+  background-image: url(../assets/13c5760eceea6843a76c2444c6f08521.jpg);
   min-height: 100vh;
   display: flex;  
   flex-direction: column;
@@ -15,6 +15,11 @@
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
+}
+
+.one{
+  text-align: center;
+  color: black;
 }
 
 

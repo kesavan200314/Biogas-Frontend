@@ -43,6 +43,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
             const token = Cookies.get("token");
     
             if (!token) {
+                
                 console.error("No authentication token found");
                 return;
             }

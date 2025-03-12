@@ -36,7 +36,7 @@ const Topbar: React.FC<{ isAuthenticated: boolean; setIsAuthenticated: (auth: bo
           {!isAuthenticated ? (
             <>
               <li className="nav-item">
-                <Link className="nav-link" to="/register">Register</Link>
+                <Link className="nav-link active" to="/register">Register</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link active" to="/login">Login</Link>

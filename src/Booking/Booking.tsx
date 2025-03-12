@@ -46,9 +46,10 @@ const Booking: React.FC = () => {
 
   return (
     <div className="booking-form-container">
-      <h2>Booking Form</h2>
+      
       <form onSubmit={handleSubmit}>
         <div className="form-group">
+          <h2 className='one'>booking form</h2>
           <label htmlFor="number">Number:</label>
           <input
             type="text"

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
-import backgroundImage from "../assets/bg.jpg";
+import backgroundImage from "../assets/77835df360d5e4ec8d3d560ac9d19342.jpg";
 import { useNavigate } from "react-router-dom";
 import { UseAuth } from "../Backend/auathcontext";
 import { ToastContainer, toast } from "react-toastify";

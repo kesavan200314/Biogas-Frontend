@@ -1,4 +1,4 @@
-/* Gradient Background */
+/* 
 .booking-form-container {
   min-height: 100vh;
   display: flex;
@@ -8,14 +8,14 @@
   padding: 20px;
   color: white;
   animation: fadeIn 1.5s ease-in-out;
-  background-image: url(../assets/valeriia-bugaiova-_pPHgeHz1uk-unsplash.jpg);
+  background-image: url(../assets/a4392ae5ba321a07bf7f917f5a5529b8.jpg);
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
 }
 
 
-/* Image Styling */
+
 .booking-image {
   margin-bottom: 20px;
   animation: slideIn 1s ease-in-out;
@@ -28,7 +28,7 @@
   border: 3px solid white;
 }
 
-/* Form Styling */
+
 form {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
@@ -73,6 +73,131 @@ form {
 
 .submit-button:hover {
   background: #6a11cb;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} */
+
+
+/* Gradient Background */
+.booking-form-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+  background-image: url(../assets/a4392ae5ba321a07bf7f917f5a5529b8.jpg);
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-attachment: fixed; /* Keeps background fixed during scrolling */
+}
+
+/* Image Styling */
+.booking-image {
+  margin-bottom: 20px;
+  animation: slideIn 1s ease-in-out;
+}
+
+.booking-image img {
+  width: 120px; /* Adjusted for better fit */
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+/* Form Styling */
+form {
+  background: rgba(255, 255, 255, 0.8); /* More visible form background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 450px; /* Slightly wider form */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Increased shadow for better depth */
+  animation: slideUp 1s ease-in-out;
+}
+
+/* Input and Select Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333; /* Darker color for better visibility */
+}
+
+/* h2{
+  color: black;
+} */
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px; /* Increased padding for comfort */
+  border: 1px solid #ccc; /* Subtle border for input fields */
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2575fc; /* Focus state to indicate interaction */
+  outline: none;
+}
+
+/* Submit Button Styling */
+.submit-button {
+  width: 100%;
+  padding: 12px; /* Increased padding for better clickability */
+  border: none;
+  border-radius: 5px;
+  background: #2575fc;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background: #6a11cb;
+  transform: scale(1.05); /* Subtle scaling effect on hover */
 }
 
 /* Animations */
