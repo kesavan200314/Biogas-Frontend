@@ -56,8 +56,8 @@ h5{
   position: absolute;
   right: 0; /* Pushes image to the right */
   top: 0;
-  border-top-left-radius: 80%;
-  border-bottom-left-radius: 55%;
+  border-top-left-radius: 60%;
+  border-bottom-left-radius: 35%;
   
 }
 
