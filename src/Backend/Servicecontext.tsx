@@ -1,5 +1,6 @@
 import React, { createContext, useState, ReactNode, useContext } from "react";
 import axios from "axios";
+import { BE_URL } from "../utils/Constant";
 
 // Define the structure for a Service and Booking
 interface Service {
@@ -34,7 +35,7 @@ export const ServiceProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     const fetchServices = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/services");
+            const response = await axios.get(`${BE_URL}/services`);
             setServices(response.data);
         } catch (error) {
             console.error("Error fetching services:", error);
@@ -43,7 +44,7 @@ export const ServiceProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     const createService = async (name: string, description: string, categories: string[]) => {
         try {
-            const response = await axios.post("http://localhost:3000/api/services", {
+            const response = await axios.post(`${BE_URL}/services`, {
                 name,
                 description,
                 categories
@@ -56,7 +57,7 @@ export const ServiceProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     const deleteService = async (id: number) => {
         try {
-            await axios.delete(`http://localhost:3000/api/services/${id}`);
+            await axios.delete(`${BE_URL}/services/${id}`);
             setServices((prev) => prev.filter((service) => service.id !== id));
         } catch (error) {
             console.error("Error deleting service:", error);
@@ -93,7 +94,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     const fetchBookings = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/bookings");
+            const response = await axios.get(`${BE_URL}/bookings`);
             setBookings(response.data);
         } catch (error) {
             console.error("Error fetching bookings:", error);
@@ -102,7 +103,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     const createBooking = async (username: string, number: string, product: string,product_Name: string) => {
         try {
-            const response = await axios.post("http://localhost:3000/api/bookings", {
+            const response = await axios.post(`${BE_URL}/bookings`, {
                 username,
                 number,
                 product,
@@ -116,7 +117,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     const deleteBooking = async (id: number) => {
         try {
-            await axios.delete(`http://localhost:3000/api/bookings/${id}`);
+            await axios.delete(`${BE_URL}/bookings/${id}`);
             setBookings((prev) => prev.filter((booking) => booking.id !== id));
         } catch (error) {
             console.error("Error deleting booking:", error);

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ReactNode, useState, useContext, createContext } from "react";
 import Cookies from "js-cookie";
+import { BE_URL } from "../utils/Constant";
 
 // Define the Booking interface
 interface Booking {
@@ -30,7 +31,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
     // Fetch Bookings
     const fetchBookings = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/bookings/get");
+            const response = await axios.get(`${BE_URL}/bookings/get`);
             console.log(response.data); 
         } catch (error) {
             console.error("Error fetching bookings:", error);
@@ -49,7 +50,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
             }
     
             const response = await axios.post(
-                `http://localhost:3000/api/booking/create`, 
+                `${BE_URL}/create`, 
                 { number, product, product_name },
                 {
                     headers: { Authorization: `Bearer ${token}` },
@@ -69,7 +70,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
     // Delete a Booking
     const deleteBooking = async (id: number) => {
         try {
-            await axios.delete(`http://localhost:3000/api/bookings/${id}`);
+            await axios.delete(`${BE_URL}/bookings/${id}`);
             setBookings((prev) => prev.filter((booking) => booking.id !== id));
         } catch (error) {
             console.error("Error deleting booking:", error);

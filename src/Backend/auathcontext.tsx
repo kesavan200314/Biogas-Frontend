@@ -1,6 +1,7 @@
 import React, {  createContext, useContext, useState, ReactNode }  from "react";
 import axios from "axios";
 import { redirect } from "react-router-dom";
+import { BE_URL } from "../utils/Constant";
 
 interface User{
     username:string;
@@ -28,7 +29,7 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
  return;;
     }
       try{
-        const response =await axios.post('http://localhost:3000/api/user/register',    {
+        const response =await axios.post(`${BE_URL}/user/register`,    {
           username,
           email,
           password,
@@ -44,7 +45,7 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
   } 
    const signin = async (email:string,password:string) => {
     try{
-      const response = await axios.post('http://localhost:3000/api/user/login', {
+      const response = await axios.post(`${BE_URL}/user/login`, {
         email,
          password
       }, { withCredentials: true })     
