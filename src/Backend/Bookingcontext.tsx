@@ -50,7 +50,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
             }
     
             const response = await axios.post(
-                `${BE_URL}/create`, 
+                `${BE_URL}/booking/create`, 
                 { number, product, product_name },
                 {
                     headers: { Authorization: `Bearer ${token}` },

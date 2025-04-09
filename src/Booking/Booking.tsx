@@ -1,13 +1,17 @@
+
+
 import React, { useState } from 'react';
 import './Booking.css'; 
 import { useBooking } from '../Backend/Bookingcontext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Booking: React.FC = () => {
   const [number, setNumber] = useState<string>('');
   const [product, setProduct] = useState<string>('');
   const [product_Name, setProductName] = useState<string>('');
 
-  const { createBooking } = useBooking()
+  const { createBooking } = useBooking();
 
   // Sample product data
   const products = [
@@ -32,13 +36,12 @@ const Booking: React.FC = () => {
       setNumber('');
       setProduct('');
       setProductName('');
-
-      console.log('Booking successful');
-      // Optionally, navigate or show a success message
-      // navigate('/')
+      
+      // Show success message
+      toast.success('Booking successful!');
     } catch (error) {
       console.error('There was an error submitting the form:', error);
-      // Handle error (e.g., show error message to the user)
+      toast.error('There was an error with the booking. Please try again.');
     }
   };
 
@@ -46,10 +49,11 @@ const Booking: React.FC = () => {
 
   return (
     <div className="booking-form-container">
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar newestOnTop closeOnClick pauseOnHover draggable theme="colored" />
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <h2 className='one'>booking form</h2>
+          <h2 className='one'>Booking Form</h2>
           <label htmlFor="number">Number:</label>
           <input
             type="text"
@@ -101,3 +105,7 @@ const Booking: React.FC = () => {
 };
 
 export default Booking;
+
+
+
+
