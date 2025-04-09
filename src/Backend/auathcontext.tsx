@@ -43,19 +43,21 @@ export const Authprovider:React.FC<{children:ReactNode }> = ({children})=>{
         console.log(error.response?.data || error.message);
       }
   } 
-   const signin = async (email:string,password:string) => {
-    try{
+  const signin = async (email: string, password: string) => {
+    try {
       const response = await axios.post(`${BE_URL}/user/login`, {
         email,
-         password
-      }, { withCredentials: true })     
-       console.log("loginUser:", response)
-       return response.data;
+        password
+      }, { withCredentials: true });
+  
+      console.log("loginUser:", response);
+      return response.data.token;
+    } catch (error: any) {
+      console.error("Login failed:", error);
+      throw new Error("Login failed"); // Throw an error to be handled by the caller
     }
-    catch(error:any){
-      console.log(error)
-    }
-  }  
+  };  
+    
   const signout = async() => {
     setUser(null);
     localStorage.removeItem('token');
